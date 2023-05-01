@@ -43,6 +43,8 @@ body {
   width: min-content;
   text-align: center;
   margin: 10px;
+  color: #ccc;
+  font-weight: bold
 }
 
 input[type="month"]::-webkit-calendar-picker-indicator {
