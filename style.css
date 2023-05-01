@@ -1,77 +1,106 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-*, ::after, ::before{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+*,
+::after,
+::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-body{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Montserrat', sans-serif;
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #ccc;
 }
 
 .container .month {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    text-align: center;
-    background: #ce0d7d;
-    padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  background: #ce0d7d;
+  padding: 10px;
 }
 
-.container .month .prev, .container .month .next {
-    cursor: pointer;
+.container .month h1 input {
+  font-family: "Montserrat", sans-serif;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 2em;
+  position: relative;
+  width: min-content;
+  text-align: center;
+  margin: 10px;
+}
+
+input[type="month"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.container .month .prev,
+.container .month .next {
+  cursor: pointer;
+  font-size: 25px;
 }
 
 .container .month .date {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.container .weekdays, .container .days {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    background: #3e3e3e;
-    padding: 0 10px;
+.container .weekdays,
+.container .days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background: #3e3e3e;
+  padding: 0 10px;
 }
 
 .container .days {
-    grid-template-rows: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
 }
 
-.container .weekdays .weekday, .container .days .day {
-    text-align: center;
-    height: 3em;
-    width: 3em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    margin: 0.2em;
+.container .weekdays .weekday,
+.container .days .day {
+  text-align: center;
+  height: 3em;
+  width: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  margin: 0.2em;
 }
 
-.container .days .prev-day, .container .days .next-day{
-    opacity: 0.5;
+.container .days .prev-day,
+.container .days .next-day {
+  opacity: 0.5;
 }
 
 .container .days .day.today {
-    background: #ce0d7d;
+  background: #ce0d7d;
 }
 
 .container .days .day:hover:not(.today) {
-    border: 1px solid #ccc;
-    cursor: pointer;
+  border: 1px solid #ccc;
+  cursor: pointer;
 }

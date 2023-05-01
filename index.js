@@ -2,8 +2,6 @@ const date = new Date();
 
 const currentDate = new Date();
 
-date.setDate(31);
-
 function renderCalendar() {
   date.setDate(1);
   const months = [
@@ -24,7 +22,12 @@ function renderCalendar() {
   const month = months[date.getMonth()];
   const year = date.getFullYear();
 
-  document.querySelector(".month h1").innerHTML = month + " " + year;
+  // document.querySelector(".month h1").innerHTML = month + " " + year;
+  document.querySelector(
+    ".month h1"
+  ).innerHTML = `<input type="month" id="date" value="${year}-${
+    date.getMonth() < 9 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1
+  }">`;
 
   document.querySelector(".month p").innerHTML = new Date().toDateString();
 
@@ -89,6 +92,14 @@ function renderCalendar() {
       currentDate.setDate(e.target.innerText);
       renderCalendar();
     });
+  });
+
+  const dateInput = document.getElementById("date");
+  dateInput.addEventListener("change", (e) => {
+    const inputDate = new Date(e.target.value);
+    date.setFullYear(inputDate.getFullYear());
+    date.setMonth(inputDate.getMonth());
+    renderCalendar();
   });
 }
 
